@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 当前应用信息配置 -->
+    <dubbo:application name="${dubboAppName}" logger="slf4j"/>
+
+    <!-- zookeeper连接注册中心配置 -->
+    <dubbo:registry address="${dubboRegistry}" client="curator" protocol="zookeeper"/>
+
+    <!-- 暴露服务协议配置 payload="16777216" -->
+    <dubbo:protocol port="${dubboServicePort}" name="dubbo"/>
+
+    <!--提供对外服务-->
+    <dubbo:service interface="com.bingcore.web.service.MapChartService" ref="mapChartService"/>
+    <dubbo:service interface="com.bingcore.web.service.DemoServer" ref="demoServer"/>
+    <dubbo:service interface="com.bingcore.web.service.GoodsService" ref="goodsService"/>
+    <dubbo:service interface="com.bingcore.web.service.SearchService" ref="searchService"/>
+
+    <!--引用其他服务-->
+    <!--<dubbo:reference id="activityService" interface="com.ishansong.price.service.ActivityService"/>-->
+
+
+</beans>

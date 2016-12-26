@@ -1,0 +1,65 @@
+{
+  "order": {
+    "_all": {
+      "enabled": false
+    },
+    "properties": {
+      "amt": {
+        "type": "integer",
+        "index": "no"
+      },
+      "city": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "count": {
+        "type": "integer",
+        "index": "no"
+      },
+      "goods": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "index": "no"
+          },
+          "flag": {
+            "type": "boolean",
+            "index": "no"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "price": {
+            "type": "integer",
+            "index": "no"
+          },
+          "remark": {
+            "type": "string",
+            "index": "no"
+          }
+        }
+      },
+      "id": {
+        "type": "string"
+      },
+      "orderNumber": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "placeTime": {
+        "type": "date"
+      },
+      "result": {
+        "type": "string",
+        "index": "not_analyzed"
+      }
+    }
+  }
+}
+
+

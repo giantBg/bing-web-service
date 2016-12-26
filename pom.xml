@@ -1,0 +1,294 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bingcore</groupId>
+    <artifactId>bingcore-web-service</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>web-core</module>
+        <module>web-service</module>
+    </modules>
+    <packaging>pom</packaging>
+    <name>bingcore-web-service</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <dubbo.version>5.0.0.0-SNAPSHOT</dubbo.version>
+        <curator.version>2.8.0</curator.version>
+        <guava.version>18.0</guava.version>
+        <isscommon.version>1.2.33</isscommon.version>
+        <isslog.version>1.0.3</isslog.version>
+        <c3p0.version>0.9.2.1</c3p0.version>
+        <spring.version>4.1.5.RELEASE</spring.version>
+        <mysql.version>5.1.25</mysql.version>
+        <json.version>2.4.2</json.version>
+        <javassist.version>3.20.0-GA</javassist.version>
+        <curator.version>2.5.0</curator.version>
+        <client-config.version>1.0-SNAPSHOT</client-config.version>
+        <nsq-version>1.0.0</nsq-version>
+        <kafka-version>0.8.0</kafka-version>
+        <mongo-version>3.0.4</mongo-version>
+        <spring.data-mongodb.version>1.8.1.RELEASE</spring.data-mongodb.version>
+        <iss-search.version>3.0.5</iss-search.version>
+        <iss-activemq.version>1.1.16</iss-activemq.version>
+        <memcached.version>2.6.6</memcached.version>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--dubbo-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.javassist</groupId>
+                        <artifactId>javassist</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.jboss.netty</groupId>
+                        <artifactId>netty</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>${javassist.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-client</artifactId>
+                <version>${curator.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ishansong</groupId>
+                <artifactId>iss-common</artifactId>
+                <version>${isscommon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ishansong</groupId>
+                <artifactId>iss-log</artifactId>
+                <version>${isslog.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mchange</groupId>
+                <artifactId>c3p0</artifactId>
+                <version>${c3p0.version}</version>
+            </dependency>
+
+            <!-- spring start-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jpa</artifactId>
+                <version>1.8.1.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>4.1.8.RELEASE</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- spring end-->
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!--json start-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${json.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-guava</artifactId>
+                <version>${json.version}</version>
+            </dependency>
+            <!--json end-->
+
+            <!--disconf start-->
+            <dependency>
+                <groupId>com.ishansong</groupId>
+                <artifactId>config-client</artifactId>
+                <version>${client-config.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--disconf end-->
+
+            <!--nsq-->
+            <dependency>
+                <groupId>com.ishansong</groupId>
+                <artifactId>iss-nsq</artifactId>
+                <version>${nsq-version}</version>
+            </dependency>
+
+            <!--kafka-->
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka_2.10</artifactId>
+                <version>${kafka-version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.zookeeper</groupId>
+                        <artifactId>zookeeper</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-simple</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!--mongo-->
+            <dependency>
+                <groupId>org.mongodb</groupId>
+                <artifactId>mongo-java-driver</artifactId>
+                <version>${mongo-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-mongodb</artifactId>
+                <version>${spring.data-mongodb.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ishansong</groupId>
+                <artifactId>iss-search-api</artifactId>
+                <version>${iss-search.version}</version>
+            </dependency>
+
+            <!--search-->
+            <dependency>
+                <groupId>com.ishansong</groupId>
+                <artifactId>iss-search-core</artifactId>
+                <version>${iss-search.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.ishansong</groupId>
+                        <artifactId>iss-common</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!--active mq-->
+            <dependency>
+                <groupId>com.ishansong</groupId>
+                <artifactId>iss-activemq</artifactId>
+                <version>${iss-activemq.version}</version>
+            </dependency>
+
+            <!--memcache-->
+            <dependency>
+                <groupId>com.danga</groupId>
+                <artifactId>memcached</artifactId>
+                <version>${memcached.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <name>cloud private releases</name>
+            <url>http://www.bingcore.com/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>cloud private snapshots</name>
+            <url>http://www.bingcore.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>
