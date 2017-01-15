@@ -202,7 +202,7 @@
                                         </generatorConfiguration>
                                     </generatorConfigurations>
                                     <jvmSettings>
-                                        <initialMemorySize>256M</initialMemorySize>
+                                        <initialMemorySize>128M</initialMemorySize>
                                         <maxMemorySize>256M</maxMemorySize>
                                         <systemProperties>
                                             <systemProperty>spring.profiles.active=dev</systemProperty>
@@ -280,7 +280,7 @@
                                         </generatorConfiguration>
                                     </generatorConfigurations>
                                     <jvmSettings>
-                                        <initialMemorySize>256M</initialMemorySize>
+                                        <initialMemorySize>128M</initialMemorySize>
                                         <maxMemorySize>256M</maxMemorySize>
                                         <systemProperties>
                                             <systemProperty>spring.profiles.active=test</systemProperty>
@@ -289,8 +289,8 @@
                                             <extraArgument>-server</extraArgument>
                                         </extraArguments>
                                         <extraArguments>
-                                            <extraArgument>-XX:PermSize=128m</extraArgument>
-                                            <extraArgument>-XX:MaxPermSize=128m</extraArgument>
+                                            <extraArgument>-XX:PermSize=64m</extraArgument>
+                                            <extraArgument>-XX:MaxPermSize=64m</extraArgument>
                                             <extraArgument>-Xmn64m</extraArgument>
                                             <extraArgument>-XX:+PrintGCDetails</extraArgument>
                                             <extraArgument>-Xloggc:gc.log</extraArgument>
@@ -374,7 +374,7 @@
                                             <extraArgument>-XX:+PrintGCDetails</extraArgument>
                                             <extraArgument>-XX:+PrintGCDateStamps</extraArgument>
                                             <extraArgument>-XX:+HeapDumpOnOutOfMemoryError</extraArgument>
-                                            <extraArgument>-XX:HeapDumpPath=/mnt/iss/service/strategy</extraArgument>
+                                            <extraArgument>-XX:HeapDumpPath=/mnt/iss/service/web</extraArgument>
                                             <extraArgument>-XX:+UseConcMarkSweepGC</extraArgument>
                                             <extraArgument>-Xloggc:gc.log</extraArgument>
                                             <extraArgument>-XX:NewSize=512m</extraArgument>
